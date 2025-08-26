@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ML Study Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">⚡ ML Study Hub</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="javascript:void(0);" onclick="showHomeInfo()">Home</a></li>
+        <li><a href="javascript:void(0);" onclick="showAbout()">About</a></li>
+        <li><a href="javascript:void(0);" onclick="showContribute()">Contribute</a></li>
+        <li><a href="javascript:void(0);" onclick="showTopics()">Topics</a></li>
+
+
+      </ul>
+    </nav>
+
+    <div class="search-container">
+      <input type="text" id="searchBar" placeholder="Search ML topics...">
+      <button id="searchBtn">🔍</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero fade-in" id="home">
+    <h1>Welcome to ML Explorer</h1>
+    <p>Find study materials, guides, and resources for Machine Learning.</p>
+  </section>
+
+  <!-- Hidden Home Info -->
+  <section id="home-info" class="home-info fade-in hidden">
+    <div class="info-container">
+      <h2>About This Website</h2>
+      <p>
+        This platform is designed to help students and learners explore 
+        <strong>Machine Learning concepts</strong> easily.  
+        You will find study materials, resources, PDFs, and videos – all in one place.  
+        Our goal is to make ML simple, structured, and beginner-friendly.
+      </p>
+    </div>
+  </section>
+
+  <!-- Core Topics -->
+  <section id="topics" class="topics fade-in">
+    <h2>Core Topics</h2>
+    <div class="topic-grid">
+      <!-- Regression -->
+      <div class="topic-card" data-topic="regression">
+        <img src="icons/regression.png" alt="Regression" />
+        <h3>Regression</h3>
+        <div class="card-actions">
+          <a class="btn pdf" href="https://drive.google.com/file/d/1lxobsbTQiTLyW9HpFSvuioOkWuBGo88g/view?usp=sharing" target="_blank">📄 PDF</a>
+          <a class="btn video" href="https://www.youtube.com/watch?v=PaFPbb66DxQ" target="_blank">🎥 Video</a>
+        </div>
+      </div>
+
+      <!-- Classification -->
+      <div class="topic-card" data-topic="classification">
+        <img src="icons/classification.png" alt="Classification" />
+        <h3>Classification</h3>
+        <div class="card-actions">
+          <a class="btn pdf" href="https://drive.google.com/file/d/1eJg0vlwYmHxVRjK5CRkUCW-m0Mhq0mpC/view?usp=drive_link" target="_blank">📄 PDF</a>
+          <a class="btn video" href="https://www.youtube.com/watch?v=wvOaJ6mQ-9k" target="_blank">🎥 Video</a>
+        </div>
+      </div>
+
+      <!-- Machine Learning -->
+      <div class="topic-card" data-topic="machine learning">
+        <img src="icons/clustering.png" alt="Machine Learning" />
+        <h3>Machine Learning</h3>
+        <div class="card-actions">
+          <a class="btn pdf" href="https://drive.google.com/file/d/1SxBZopVgMiHNTDDgeUME13EUwDATXbX6/view?usp=drive_link" target="_blank">📄 PDF</a>
+          <a class="btn video" href="https://www.youtube.com/watch?v=GwIo3gDZCVQ" target="_blank">🎥 Video</a>
+        </div>
+      </div>
+
+      <!-- Neural Networks -->
+      <div class="topic-card" data-topic="neural networks">
+        <img src="icons/neural.png" alt="Neural Networks" />
+        <h3>Neural Networks</h3>
+        <div class="card-actions">
+          <a class="btn pdf" href="https://drive.google.com/file/d/1rY1zR9aqvgg-c5eXhrJS6wsOtfipshmI/view?usp=drive_link" target="_blank">📄 PDF</a>
+          <a class="btn video" href="https://www.youtube.com/watch?v=aircAruvnKk" target="_blank">🎥 Video</a>
+        </div>
+      </div>
+
+      <!-- Reinforcement Learning -->
+      <div class="topic-card" data-topic="reinforcement learning">
+        <img src="icons/reinforcement.png" alt="Reinforcement Learning" />
+        <h3>Reinforcement Learning</h3>
+        <div class="card-actions">
+          <a class="btn pdf" href="https://drive.google.com/file/d/17JAQULeg2v-evdMtmmLzI6vTvm1Pxx-9/view?usp=drive_link" target="_blank">📄 PDF</a>
+          <a class="btn video" href="https://www.youtube.com/watch?v=2pWv7GOvuf0" target="_blank">🎥 Video</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Search Results -->
+  <section id="results" class="results fade-in">
+    <h2>Search Results</h2>
+    <ul id="resultList"></ul>
+  </section>
+
+  <!-- About Section -->
+  <section id="about-info" class="about-info fade-in hidden">
+    <div class="info-container">
+      <h2>About Me</h2>
+      <p>
+        Hi, I’m <strong>Soham Bangar</strong>, an E&TC final year student at GHRCEM.  
+        I built this website to help learners easily explore and understand 
+        <strong>Machine Learning</strong> through organized notes, PDFs, and videos.  
+        My goal is to make technical study material accessible, simple, and engaging.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contribute Section -->
+  <section id="contribute" class="contribute-section fade-in hidden">
+    <div class="info-container">
+      <h2>Contribute to this Website</h2>
+      <p>
+        Do you have useful PDFs, videos, or resources related to our topics?  
+        Share them here to help others learn better! 🙌
+      </p>
+      
+<form id="contributeForm">
+  <input type="text" name="title" placeholder="Topic Title" required>
+  <input type="url" name="pdfLink" placeholder="PDF Link">
+  <input type="url" name="videoLink" placeholder="Video Link">
+  <button type="submit">Submit</button>
+</form>
+
+
+      <p id="contributeMsg" style="margin-top:10px;color:green;display:none;">
+        ✅ Thank you for your contribution! It will be reviewed.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hidden ML Topics -->
+  <section id="ml-resources" class="hidden">
+    <h2> Machine Learning Topics</h2>
+    <div class="topics-grid">
+      <!-- Data in ML -->
+      <div class="topic-card" data-topic="data in ml">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Data in ML" />
+        <h3>Data in Machine Learning</h3>
+        <a href="https://drive.google.com/file/d/1pd09gVBFSciU8Q9n8qNQ-BsC1baEhqRm/view" target="_blank" class="btn pdf">📄 View PDF</a>
+        <a href="https://drive.google.com/uc?export=download&id=1pd09gVBFSciU8Q9n8qNQ-BsC1baEhqRm" class="btn download">⬇ Download PDF</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="btn video">🎥 Watch Video</a>
+      </div>
+
+      <!-- Unsupervised Learning -->
+      <div class="topic-card" data-topic="unsupervised learning">
+        <img src="https://cdn-icons-png.flaticon.com/512/3208/3208679.png" alt="Unsupervised Learning" />
+        <h3>Unsupervised Learning</h3>
+        <a href="https://drive.google.com/file/d/1KfXgzi5sFKzUnFwsa0KhQukblsWS2qDE/view" target="_blank" class="btn pdf">📄 View PDF</a>
+        <a href="https://drive.google.com/uc?export=download&id=1KfXgzi5sFKzUnFwsa0KhQukblsWS2qDE" class="btn download">⬇ Download PDF</a>
+        <a href="https://www.youtube.com/watch?v=4b5d3muPQmA" target="_blank" class="btn video">🎥 Watch Video</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 ML Study Hub. All rights reserved.</p>
+    <div class="footer-links">
+      <a href="#" onclick="toggleSection('privacy')">Privacy</a>
+      <a href="#" onclick="toggleSection('terms')">Terms</a>
+      <a href="https://github.com/sohambangar" target="_blank">GitHub</a>
+      <a href="#" onclick="toggleSection('contact')">Contact</a>
+    </div>
+
+    <div id="privacy" class="footer-section hidden">
+      <h3>Privacy Policy</h3>
+      <p>We value your privacy. Your data is not collected or shared.</p>
+    </div>
+    <div id="terms" class="footer-section hidden">
+      <h3>Terms & Conditions</h3>
+      <p>Use this site responsibly for educational purposes only.</p>
+    </div>
+    <div id="contact" class="footer-section hidden">
+      <h3>Contact</h3>
+      <p>Created by <b>Soham Bangar</b>, E&TC Final Year, GHRCEM.</p>
+      <p>Email: sohambangar12@gmail.com</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
